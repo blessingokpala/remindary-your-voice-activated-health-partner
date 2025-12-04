@@ -2,95 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
+    /* Remindary Color Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 165 41% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 165 41% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 165 41% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Teal #4ABDAC */
+    --primary: 171 46% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 165 41% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Light mint #c7ede0 */
+    --secondary: 155 55% 85%;
+    --secondary-foreground: 165 41% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted */
+    --muted: 155 30% 95%;
+    --muted-foreground: 165 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Same as primary for consistency */
+    --accent: 171 46% 52%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Error: Red #DF3F40 */
+    --destructive: 0 69% 56%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning/Other: Orange #F6A910 */
+    --warning: 40 92% 51%;
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* Pending orange */
+    --pending: 40 92% 51%;
+    --pending-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Success/Taken */
+    --success: 171 46% 52%;
+    --success-foreground: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --border: 165 30% 85%;
+    --input: 165 30% 90%;
+    --ring: 171 46% 52%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --radius: 1rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* App specific colors */
+    --teal-dark: 165 41% 35%;
+    --teal-darker: 165 45% 28%;
+    --cyan-bright: 170 100% 60%;
+    --mint-light: 155 55% 92%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 165 41% 35%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 171 46% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 165 45% 28%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 165 30% 45%;
+    --sidebar-ring: 171 46% 52%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 165 45% 8%;
+    --foreground: 155 55% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 165 40% 12%;
+    --card-foreground: 155 55% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 165 40% 12%;
+    --popover-foreground: 155 55% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 171 46% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 165 41% 35%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 165 30% 20%;
+    --secondary-foreground: 155 55% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 165 30% 18%;
+    --muted-foreground: 155 30% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 171 46% 52%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 69% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --warning: 40 92% 51%;
+    --warning-foreground: 0 0% 100%;
+
+    --pending: 40 92% 51%;
+    --pending-foreground: 165 45% 8%;
+
+    --success: 171 46% 52%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 165 30% 25%;
+    --input: 165 30% 20%;
+    --ring: 171 46% 52%;
+
+    --teal-dark: 165 41% 35%;
+    --teal-darker: 165 45% 20%;
+    --cyan-bright: 170 100% 60%;
+    --mint-light: 165 30% 18%;
+
+    --sidebar-background: 165 45% 10%;
+    --sidebar-foreground: 155 55% 92%;
+    --sidebar-primary: 171 46% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 165 40% 15%;
+    --sidebar-accent-foreground: 155 55% 92%;
+    --sidebar-border: 165 30% 20%;
+    --sidebar-ring: 171 46% 52%;
   }
 }
 
@@ -100,6 +133,173 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-200;
+  }
+
+  .card-medication {
+    @apply bg-card rounded-2xl p-4 shadow-sm border border-border/50;
+  }
+
+  .input-field {
+    @apply bg-background border border-border rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 text-muted-foreground transition-colors;
+  }
+
+  .nav-item.active {
+    @apply text-primary;
+  }
+
+  .status-taken {
+    @apply bg-success text-success-foreground;
+  }
+
+  .status-pending {
+    @apply bg-pending text-pending-foreground;
+  }
+
+  .onboarding-bg {
+    @apply bg-teal-dark;
+  }
+
+  .logo-ring {
+    @apply rounded-full border-4 border-cyan-bright;
+  }
+
+  .concentric-circle {
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .page-indicator-dot {
+    @apply w-2 h-2 rounded-full transition-all duration-300;
+  }
+
+  .page-indicator-dot.active {
+    @apply bg-teal-dark w-3;
+  }
+
+  .page-indicator-dot:not(.active) {
+    @apply bg-border;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .bg-teal-dark {
+    background-color: hsl(var(--teal-dark));
+  }
+
+  .bg-teal-darker {
+    background-color: hsl(var(--teal-darker));
+  }
+
+  .text-teal-dark {
+    color: hsl(var(--teal-dark));
+  }
+
+  .border-cyan-bright {
+    border-color: hsl(var(--cyan-bright));
+  }
+
+  .bg-cyan-bright {
+    background-color: hsl(var(--cyan-bright));
+  }
+
+  .text-cyan-bright {
+    color: hsl(var(--cyan-bright));
+  }
+
+  .bg-mint-light {
+    background-color: hsl(var(--mint-light));
+  }
+
+  .shadow-soft {
+    box-shadow: 0 4px 20px -4px rgba(45, 106, 95, 0.15);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 12px -2px rgba(45, 106, 95, 0.1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Mobile app container */
+.app-container {
+  @apply max-w-md mx-auto min-h-screen relative overflow-hidden;
+}
+
+/* Safe area for mobile */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
