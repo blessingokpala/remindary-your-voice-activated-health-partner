@@ -26,6 +26,15 @@ import Manage from "./pages/Manage";
 import VoiceAssistant from "./pages/VoiceAssistant";
 import CalendarView from "./pages/CalendarView";
 
+// Settings
+import ProfileSettings from "./pages/settings/ProfileSettings";
+import NotificationPreferences from "./pages/settings/NotificationPreferences";
+import VoiceCommands from "./pages/settings/VoiceCommands";
+import ConnectedDevices from "./pages/settings/ConnectedDevices";
+import SoundSettings from "./pages/settings/SoundSettings";
+import PrivacySecurity from "./pages/settings/PrivacySecurity";
+import HelpCenter from "./pages/settings/HelpCenter";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +67,15 @@ const App = () => (
             <Route path="/manage" element={<Manage />} />
             <Route path="/voice-assistant" element={<VoiceAssistant />} />
             <Route path="/calendar" element={<CalendarView />} />
+            
+            {/* Settings */}
+            <Route path="/profile" element={<ProfileSettings />} />
+            <Route path="/notifications" element={<NotificationPreferences />} />
+            <Route path="/voice-settings" element={<VoiceCommands />} />
+            <Route path="/devices" element={<ConnectedDevices />} />
+            <Route path="/sound" element={<SoundSettings />} />
+            <Route path="/privacy" element={<PrivacySecurity />} />
+            <Route path="/help" element={<HelpCenter />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
